@@ -8,6 +8,8 @@ Key:
   - Removal
 
 Version 1.5.01-dev
+ + Added particle effects and sounds to "Call of the Wild" (Taming)
+ + Added summon length to "Call of the Wild". Summons will now commit suicide after their lifespan expires
  + Added new feature to Herbalism. Instantly-regrown crops are protected from being broken for 1 second
  + Added option to config.yml to show the /mcstats scoreboard automatically after logging in
  + Added option to config.yml for Alchemy. Skills.Alchemy.Prevent_Hopper_Transfer_Bottles
