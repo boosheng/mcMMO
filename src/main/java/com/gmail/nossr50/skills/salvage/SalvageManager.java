@@ -80,12 +80,12 @@ public class SalvageManager extends SkillManager {
 
         // Level check
         if (skillLevel < minimumSalvageableLevel) {
-            player.sendMessage(LocaleLoader.getString("Salvage.Skills.Adept", minimumSalvageableLevel, StringUtils.getPrettyItemString(item.getType())));
+            player.sendMessage(LocaleLoader.getString("Salvage.Skills.Adept.Level", minimumSalvageableLevel, StringUtils.getPrettyItemString(item.getType())));
             return;
         }
 
         if (item.getDurability() != 0 && (getSkillLevel() < Salvage.advancedSalvageUnlockLevel || !Permissions.advancedSalvage(player))) {
-            player.sendMessage(LocaleLoader.getString("Salvage.Skills.AdeptDamaged"));
+            player.sendMessage(LocaleLoader.getString("Salvage.Skills.Adept.Damaged"));
             return;
         }
 
