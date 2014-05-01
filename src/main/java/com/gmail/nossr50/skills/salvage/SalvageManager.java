@@ -126,6 +126,10 @@ public class SalvageManager extends SkillManager {
         player.sendMessage(LocaleLoader.getString("Salvage.Skills.Success"));
     }
 
+    public double getMaxSalvagePercentage() {
+        return Math.min((((Salvage.salvageMaxPercentage / Salvage.salvageMaxPercentageLevel) * getSkillLevel()) / 100.0D), Salvage.salvageMaxPercentage / 100.0D);
+    }
+
     /**
      * Gets the Arcane Salvage rank
      *

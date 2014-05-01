@@ -51,18 +51,18 @@ public class SalvageCommand extends SkillCommand {
     @Override
     protected List<String> statsDisplay(Player player, float skillValue, boolean hasEndurance, boolean isLucky) {
         List<String> messages = new ArrayList<String>();
+        SalvageManager salvageManager = UserManager.getPlayer(player).getSalvageManager();
+
         if (canAdvancedSalvage) {
             if (skillValue < Salvage.advancedSalvageUnlockLevel) {
                 messages.add(LocaleLoader.getString("Ability.Generic.Template.Lock", LocaleLoader.getString("Salvage.Ability.Locked.0", Salvage.advancedSalvageUnlockLevel)));
             }
             else {
-                messages.add(LocaleLoader.getString("Ability.Generic.Template", LocaleLoader.getString("Salvage.Ability.Bonus.0"), LocaleLoader.getString("Salvage.Ability.Bonus.1")));
+                messages.add(LocaleLoader.getString("Ability.Generic.Template", LocaleLoader.getString("Salvage.Ability.Bonus.0"), LocaleLoader.getString("Salvage.Ability.Bonus.1", percent.format(salvageManager.getMaxSalvagePercentage()))));
             }
         }
 
         if (canArcaneSalvage) {
-            SalvageManager salvageManager = UserManager.getPlayer(player).getSalvageManager();
-
             messages.add(LocaleLoader.getString("Salvage.Arcane.Rank", salvageManager.getArcaneSalvageRank(), Salvage.Tier.values().length));
 
             if (Salvage.arcaneSalvageEnchantLoss) {
