@@ -256,6 +256,10 @@ public class SkillUtils {
     }
 
     public static int getRepairAndSalvageQuantities(ItemStack item, Material repairMaterial, byte repairMetadata) {
+        // Workaround for Bukkit bug where damaged items would not return any recipes
+        item = item.clone();
+        item.setDurability((short) 0);
+
         int quantity = 0;
         MaterialData repairData = repairMaterial != null ? new MaterialData(repairMaterial, repairMetadata) : null;
         List<Recipe> recipes = mcMMO.p.getServer().getRecipesFor(item);
