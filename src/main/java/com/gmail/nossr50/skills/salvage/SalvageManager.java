@@ -99,8 +99,7 @@ public class SalvageManager extends SkillManager {
             return;
         }
 
-        double salvagePercentage = Math.min((((Salvage.salvageMaxPercentage / Salvage.salvageMaxPercentageLevel) * getSkillLevel()) / 100.0D), Salvage.salvageMaxPercentage / 100.0D);
-        salvageableAmount = Math.max((int) (salvageableAmount * salvagePercentage), 1); // Always get at least something back, if you're capable of repairing it.
+        salvageableAmount = Math.max((int) (salvageableAmount * getMaxSalvagePercentage()), 1); // Always get at least something back, if you're capable of salvaging it.
 
         player.setItemInHand(new ItemStack(Material.AIR));
         location.add(0, 1, 0);

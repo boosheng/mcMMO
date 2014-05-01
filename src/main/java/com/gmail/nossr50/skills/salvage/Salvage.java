@@ -51,7 +51,7 @@ public class Salvage {
     public static boolean arcaneSalvageEnchantLoss = AdvancedConfig.getInstance().getArcaneSalvageEnchantLossEnabled();
 
     protected static int calculateSalvageableAmount(short currentDurability, short maxDurability, int baseAmount) {
-        double percentDamaged = (double) (maxDurability - currentDurability) / maxDurability;
+        double percentDamaged = (maxDurability <= 0) ? 1D : (double) (maxDurability - currentDurability) / maxDurability;
 
         return (int) Math.floor(baseAmount * percentDamaged);
     }

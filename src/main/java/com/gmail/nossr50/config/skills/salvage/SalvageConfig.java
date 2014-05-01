@@ -91,10 +91,6 @@ public class SalvageConfig extends ConfigLoader {
             // Maximum Durability
             short maximumDurability = (itemMaterial != null ? itemMaterial.getMaxDurability() : (short) config.getInt("Salvageables." + key + ".MaximumDurability"));
 
-            if (maximumDurability <= 0) {
-                reason.add("Maximum durability of " + key + " must be greater than 0!");
-            }
-
             // Item Type
             ItemType salvageItemType = ItemType.OTHER;
             String salvageItemTypeString = config.getString("Salvageables." + key + ".ItemType", "OTHER");
