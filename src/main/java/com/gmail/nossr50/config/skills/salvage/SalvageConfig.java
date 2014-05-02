@@ -145,6 +145,11 @@ public class SalvageConfig extends ConfigLoader {
     }
 
     private boolean noErrorsInSalvageable(List<String> issues) {
+        if (!issues.isEmpty()) {
+            plugin.getLogger().warning("Errors have been found in: " + fileName);
+            plugin.getLogger().warning("The following issues were found:");
+        }
+
         for (String issue : issues) {
             plugin.getLogger().warning(issue);
         }
