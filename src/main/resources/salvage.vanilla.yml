@@ -5,7 +5,7 @@
 # Any file named salvage.*.yml in the mcmmmo folder will be loaded as a salvage config
 # All salvage configs have a main section titled "Salvageables"
 # Afterwards, all sub-items are considered a Salvageable to be loaded. The names of each subitem should be the exact material name.
-# The bare minimum of a Salvageable is that it has a minimumLevel.
+# The bare minimum of a Salvageable is that it has a minimumLevel and XpMultiplier.
 #
 # ItemType: This is the type of item to be repaired, this is only important to permissions.
 ## Valid values are ARMOR, TOOL, and OTHER.
@@ -16,14 +16,14 @@
 ## This defaults to OTHER.
 #
 # SalvageMaterial: This is the material name of the item used to salvage this item.
-## This is required to be set.
+## This is required to be set for non craftable items, if not set mcMMO checks the crafting recipe to see which items
+## should be dropped when salvaging the item.
 #
 # SalvageMaterialMetadata: This is the metadata of the item used to salvage this item.
 ## A value of -1 means to ignore all metadata when repairing.
 ## This defaults to -1
 #
 # MaximumDurability: This is the maximum durability of the item.
-## This is required to be set.
 #
 # MinimumLevel: This is the minimum repair level needed to salvage this item.
 ## Valid values are => 0
