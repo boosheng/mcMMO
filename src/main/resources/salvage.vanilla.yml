@@ -29,7 +29,7 @@
 ## Valid values are => 0
 ## This defaults to 0
 #
-# MinimumQuantity: This is the maximum number of items yield after salvaging the item, ignoring all other salvage bonuses.
+# MaximumQuantity: This is the maximum number of items yield after salvaging the item, ignoring all other salvage bonuses.
 ## This is typically the number of the salvage material needed to create a new item, for example for a sword it is 2, for an axe it is 3
 ## This defaults to 2
 #

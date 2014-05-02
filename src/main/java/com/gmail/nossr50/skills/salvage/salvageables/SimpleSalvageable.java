@@ -8,23 +8,23 @@ import com.gmail.nossr50.datatypes.skills.MaterialType;
 
 public class SimpleSalvageable implements Salvageable {
     private final Material itemMaterial, salvageMaterial;
-    private final int minimumQuantity, minimumLevel;
+    private final int maximumQuantity, minimumLevel;
     private final short maximumDurability, baseSalvageDurability;
     private final byte salvageMetadata;
     private final ItemType salvageItemType;
     private final MaterialType salvageMaterialType;
     private final double xpMultiplier;
 
-    protected SimpleSalvageable(Material type, Material salvageMaterial, byte salvageMetadata, int minimumLevel, int minimumQuantity, short maximumDurability, ItemType salvageItemType, MaterialType salvageMaterialType, double xpMultiplier) {
+    protected SimpleSalvageable(Material type, Material salvageMaterial, byte salvageMetadata, int minimumLevel, int maximumQuantity, short maximumDurability, ItemType salvageItemType, MaterialType salvageMaterialType, double xpMultiplier) {
         this.itemMaterial = type;
         this.salvageMaterial = salvageMaterial;
         this.salvageMetadata = salvageMetadata;
         this.salvageItemType = salvageItemType;
         this.salvageMaterialType = salvageMaterialType;
         this.minimumLevel = minimumLevel;
-        this.minimumQuantity = minimumQuantity;
+        this.maximumQuantity = maximumQuantity;
         this.maximumDurability = maximumDurability;
-        this.baseSalvageDurability = (short) (maximumDurability / minimumQuantity);
+        this.baseSalvageDurability = (short) (maximumDurability / maximumQuantity);
         this.xpMultiplier = xpMultiplier;
     }
 
@@ -54,8 +54,8 @@ public class SimpleSalvageable implements Salvageable {
     }
 
     @Override
-    public int getMinimumQuantity() {
-        return minimumQuantity;
+    public int getMaximumQuantity() {
+        return maximumQuantity;
     }
 
     @Override

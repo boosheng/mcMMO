@@ -42,13 +42,13 @@ public interface Salvageable {
     public MaterialType getSalvageMaterialType();
 
     /**
-     * Gets the minimum quantity of repair materials ignoring all other repair bonuses
+     * Gets the maximum quantity of salvage materials ignoring all other salvage bonuses
      *
      * This is typically set to the number of items needed to create that item, for example 5 for helmets or 2 for swords
      *
-     * @return the minimum number of items
+     * @return the maximum number of items
      */
-    public int getMinimumQuantity();
+    public int getMaximumQuantity();
 
     /**
      * Gets the maximum durability of this item before it breaks
