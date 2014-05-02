@@ -90,9 +90,8 @@ public class SalvageManager extends SkillManager {
         }
 
         byte salvageMaterialMetadata = salvageable.getSalvageMaterialMetadata();
-        int baseSalvageAmount = SkillUtils.getRepairAndSalvageQuantities(item, salvageable.getSalvageMaterial(), (byte) -1);
 
-        int salvageableAmount = Salvage.calculateSalvageableAmount(item.getDurability(), salvageable.getMaximumDurability(), baseSalvageAmount);
+        int salvageableAmount = Salvage.calculateSalvageableAmount(item.getDurability(), salvageable.getMaximumDurability(), salvageable.getMaximumQuantity());
 
         if (salvageableAmount == 0) {
             player.sendMessage(LocaleLoader.getString("Salvage.Skills.TooDamaged"));
